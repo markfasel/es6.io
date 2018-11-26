@@ -10,6 +10,14 @@
 	<script>
 		console.log(pizza); // if var - it will output undefined, if const or let if will throw a reference error and will break code
 		const pizza = 'Deep Dish 🍕🍕🍕';
+
+		// use const by default
+		// use let if rebinding is needed
+		// var should never be used in es6
+
+		// Use var for top-level variables that are shared across many scopes
+		// Use let for localized variables in smaller scopes
+		// Refactor let and const only after some code has been written and you're reasonably sure that you've got a case where there shouldn't be variable reassignment
 	</script>
 </body>
 
