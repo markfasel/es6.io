@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>let and const</title>
+	<meta charset="UTF-8">
+	<title>let and const</title>
 </head>
+
 <body>
-<script>
-  const key = 'abc123';
-  let points = 50;
-  let winner = false;
+	<script>
+		const key = 'abc123'; // Can't update const variable - like private
+		let points = 50; // Can update let variable - like public
+		let winner = false;
 
-  const person = {
-    name: 'Wes',
-    age: 28
-  }
+		const person = {
+			name: 'Wes',
+			age: 28
+		}
 
-  const wes = Object.freeze(person);
+		const wes = Object.freeze(person);
+		/* 
+		** Not es6 but JS on MDN - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze 
+		** A frozen object can no longer be changed;
+		*/
 
-</script>
+	</script>
 </body>
+
 </html>
