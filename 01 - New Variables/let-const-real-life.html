@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>let and const real world</title>
+	<meta charset="UTF-8">
+	<title>let and const real world</title>
 </head>
+
 <body>
-<script>
-  {
-    const name = 'wes';
-    console.log(name);
-  }
+	<script>
+		(function () { // IIFE - Immediately Invoked Function
+			var name = 'Mark';
+		})();
+		{
+			const name = 'wes';
+			console.log(name);
+		}
 
-  for(let i = 0; i < 10; i++) {
-    console.log(i);
-    setTimeout(function() {
-      console.log('The number is ' + i);
-    },1000);
-  }
+		for (let i = 0; i < 10; i++) { // Using let ensures that i is updated each time and wont leak - with var it will show i as 10
+			console.log(i);
+			setTimeout(function () {
+				console.log('The number is ' + i);
+			}, 1000);
+		}
 
-</script>
+	</script>
 </body>
+
 </html>
