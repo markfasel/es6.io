@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Iterables & Looping</title>
+	<meta charset="UTF-8">
+	<title>Iterables & Looping</title>
 </head>
+
 <body>
 
-<script>
-  const apple = {
-    color: 'Red',
-    size: 'Medium',
-    weight: 50,
-    sugar: 10
-  };
+	<script>
+		const apple = {
+			color: 'Red',
+			size: 'Medium',
+			weight: 50,
+			sugar: 10
+		};
 
-  for (const prop in apple) {
-    const value = apple[prop];
-    console.log(value, prop);
-  }
+		for (const prop in apple) { // Object.entries() available in es2017 and can be used with polyfill
+			const value = apple[prop];
+			console.log(value, prop);
+		}
 
-</script>
+	</script>
 </body>
+
 </html>
