@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>The ...Rest Param</title>
+	<meta charset="UTF-8">
+	<title>The ...Rest Param</title>
 </head>
+
 <body>
-<script>
-  // function convertCurrency(rate, tax, tip, ...amounts) {
-  //   console.log(rate, tax, tip, amounts);
-  //   return amounts.map(amount => amount * rate);
-  // }
+	<script>
 
-  // const amounts = convertCurrency(1.54, 10, 23, 52, 1, 56);
-  // console.log(amounts);
+		// function convertCurrency(rate, ...amounts) {
+		// 	return ammounts.map(ammount => ammount * rate);
+		// };
 
-  const runner = ['Wes Bos', 123, 5.5, 5, 3, 6, 35];
-  const [name, id, ...runs] = runner;
-  console.log(name, id, runs);
+		// convertCurrency(1.54, 10, 23, 52, 1, 56);
 
-  const team = ['Wes', 'Kait', 'Lux', 'Sheena', 'Kelly'];
-  const [captain, assistant, ...players] = team;
-  console.log(captain, assistant, players)
+		// console.log(ammounts);
 
-</script>
+		const runner = ['Mark Fasel', 123, 5.5, 3, 6, 35];
+		const [name, id, ...runs];
+
+		const team = ['mark', 'mallory', 'gavin', 'lily'];
+		const [captain, assistant, ...platers] = team;
+
+		console.log(captain, assistant, platers);
+
+	</script>
 </body>
+
 </html>
