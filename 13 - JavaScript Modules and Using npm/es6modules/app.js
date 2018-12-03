@@ -3,6 +3,10 @@ import insane from 'insane';
 import jsonp from 'jsonp';
 import { apiKey, url, sayHi } from './src/config';
 
-sayHi('Mark')
-const ages = [1, 1, 3, 4, 5, 6, 6, 12, 23];
+import User, { createURL, gravater } from './src/user';
 
+const mark = new User('Mark Fasel', 'markfasel@gmail.com', 'markfasel.com');
+const profile = createURL(mark.name);
+const image = gravatar(mark.email);
+
+console.log(image);
