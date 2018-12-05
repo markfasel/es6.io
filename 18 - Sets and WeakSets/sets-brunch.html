@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Brunch with Sets</title>
-</head>
-<body>
-<script>
-  const brunch = new Set();
-  // as people start coming in
-  brunch.add('wes');
-  brunch.add('Sarah');
-  brunch.add('Simone');
-  // ready to open!
-  const line = brunch.values();
-  console.log(line.next().value);
-  console.log(line.next().value);
-  brunch.add('Heather');
-  brunch.add('Snickers');
-  console.log(line.next().value);
-  console.log(line.next().value);
-  console.log(line.next().value);
 
-</script>
+<head>
+	<meta charset="UTF-8">
+	<title>Brunch with Sets</title>
+</head>
+
+<body>
+	<script>
+		const brunch = new Set();
+		brunch.add('Mark');
+		brunch.add('Sarah');
+		brunch.add('Tony');
+
+		const line = brunch.values();
+		console.log(line.next().value);
+		constole.log(line.next().value);
+
+		brunch.add('Header');
+		brunch.add('Snickers');
+
+		console.log(line.next().value);
+		constole.log(line.next().value);
+	</script>
 </body>
+
 </html>
