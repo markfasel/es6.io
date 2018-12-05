@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Extending</title>
+	<meta charset="UTF-8">
+	<title>Extending</title>
 </head>
+
 <body>
-<script>
-  class MovieCollection extends Array {
-    constructor(name, ...items) {
-      super(...items);
-      this.name = name;
-    }
-    add(movie) {
-      this.push(movie);
-    }
-    topRated(limit = 10) {
-      return this.sort((a, b) => (a.stars > b.stars ? -1 : 1)).slice(0, limit);
-    }
-  }
+	<script>
+		class MovieCollection extends Array {
+			constructor(name, ...items) { // Capture all
+				super(...items); // Spread into it
+				this.name;
+			}
+			add(movie) {
+				this.push(movie);
+			}
+			topRate(limit = 10) {
+				return this.sort((a, b) => a.stars > b.stars ? -1 : 1)).slice(0, limit)
+			}
+		}
+		const movies = new MovieCollection('Mark\'s Fav Movies',
+			{ name: 'Die Hard', stars: 10 },
+			{ name: 'Lethal Weapon', stars: 8 },
+			{ name: 'Santa Clause', stars: 10 },
+			{ name: 'Santa Clause 2', stars: 7 }
+		);
 
-  const movies = new MovieCollection('Wes\'s Fav Movies',
-    { name: 'Bee Movie', stars: 10 },
-    { name: 'Star Wars Trek', stars: 1 },
-    { name: 'Virgin Suicides', stars: 7 },
-    { name: 'King of the Road', stars: 8 }
-  );
+		movies.add({ name: 'Titanic' stars: '7' });
 
-  movies.add({ name: 'Titanic', stars: 5 });
-
-</script>
+	</script>
 </body>
+
 </html>
