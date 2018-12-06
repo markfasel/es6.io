@@ -28,8 +28,46 @@
 
 		// }
 
-		async function go() { // must use async to wait for a function to complete
-			console.log('start');
+		// Perfect example of async await
+		// Can use a high order function
+		// const userPage = router.get('/user', async (req, res, next) => {
+		// 	try {
+		// 		const users = await User.find() // Return 10 users
+		// 	} catch (err) {
+		// 		res.render('error');
+		// 	}
+		// });
+
+		function catchErrors(fn) {
+			return function (...arguments) { // Returns a function
+				return fn(...arguments).catch((err) => { // Returns our primary function to catch errors
+					console.error('Ohhhhh noooo!!!');
+					console.error(err);
+				});
+			}
+		}
+
+		async function go(name, last) { // must use async to wait for a function to complete
+			// try {
+			// 	console.log('start');
+			// 	const resp = await breathe(1000);
+			// 	console.log(res);
+			// 	const resp2 = await breathe(300);
+			// 	console.log(resp2);
+			// 	const resp3 = await breathe(750);
+			// 	console.log(resp3);
+			// 	const resp4 = await breathe(900);
+			// 	console.log(resp4);
+			// 	console.log('end');
+			// } catch (err) {
+			// 	console.error('Ohhhhh noooo!!!');
+			// 	console.error(err);
+			// }
+
+			// High Order Function - a function that takes in a function as an argument and returns a new function - not used all the time - used in function mostly
+			// but form validation - handling all errors in a similar way - like urls - if any url breaks - if we want a custom error
+
+			console.log(`starting for ${name} ${last}`);
 			const resp = await breathe(1000);
 			console.log(res);
 			const resp2 = await breathe(300);
@@ -39,9 +77,12 @@
 			const resp4 = await breathe(900);
 			console.log(resp4);
 			console.log('end');
+
 		}
 
-		go();
+		const wrappedFunction = catchErrors(go);
+
+		wrappedFunction('Mark', 'Fasel');
 
 	</script>
 </body>
