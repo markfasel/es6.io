@@ -2,31 +2,39 @@
 <html lang="en">
 
 <head>
-  <title>Async Await</title>
+	<title>Async Await</title>
 </head>
 
 <body>
-  <script>
-    // async function go() {
-    //   const p1 = fetch('https://api.github.com/users/wesbos');
-    //   const p2 = fetch('https://api.github.com/users/stolinski');
-    //   // Wait for both of them to come back
-    //   const res = await Promise.all([p1, p2]);
-    //   const dataPromises = res.map(r => r.json());
-    //   const [wes, scott] = await Promise.all(dataPromises);
-    //   console.log(wes, scott);
-    // }
+	<script>
+		// async function go() {
+		// 	// const p1 = fetch('https://api.github.com/users/markfasel').then(r => r.json());
+		// 	// const p2 = fetch('https://api.github.com/users/wesbos').then(r => r.json());
 
-    // go();
+		// 	const p1 = fetch('https://api.github.com/users/markfasel');
+		// 	const p2 = fetch('https://api.github.com/users/wesbos');
+		// 	// wait for both to come back
 
-    async function getData(names) {
-      const promises = names.map(name => fetch(`https://api.github.com/users/${name}`).then(r => r.json()));
-      const people = await Promise.all(promises);
-      console.log(people);
-    }
+		// 	// Another way to handle this
+		// 	const res = Promise.all([p1, p2]);
+		// 	const dataPromises = res.map(r => r.json());
+		// 	const [mark, wes] = await Promises.all(dataPromises);
+		// 	console.log(mark, wes);
+		// }
 
-    getData(['wesbos', 'stolinski', 'darcyclarke']);
-  </script>
+		// go();
+
+		async function getData(names) {
+			const promises = names.map(name => fetch(`https://api.github.com/users/${name}`)
+				.then(r => r.json()));
+			// const people = await Promise.all(promises);
+			const people = await Promise.race(promises); // resolve as soon as the first promise comes back - not used much in real world
+			console.log(people);
+		}
+
+		getData(['mark', 'wes']);
+
+	</script>
 </body>
 
 </html>
