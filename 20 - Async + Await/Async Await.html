@@ -2,46 +2,48 @@
 <html lang="en">
 
 <head>
-  <title>Async Await</title>
+	<title>Async Await</title>
 </head>
 
 <body>
-  <script>
-    function breathe(amount) {
-      return new Promise((resolve, reject) => {
-        if (amount < 500) {
-          reject('That is too small of a value');
-        }
-        setTimeout(() => resolve(`Done for ${amount} ms`), amount);
-      });
-    }
+	<script>
+		// setInterval(() => console.log(Date.now()), 500)
 
-    function catchErrors(fn) {
-      return function (...args) {
-        return fn(...args).catch((err) => {
-          console.error('Ohhhh nooo!!!!!');
-          console.error(err);
-        });
-      }
-    }
+		function breathe(amount) {
+			return new Promise((resolve, reject) => {
+				if (amount < 500) {
+					reject('that is too small of a value');
+				}
+				setTimeout(() => resolve(`Done for ${amount} ms`), amount);
+			});
+		}
 
-    async function go(name, last) {
-      console.log(`Starting for ${name} ${last}!`);
-      const res = await breathe(1000);
-      console.log(res);
-      const res2 = await breathe(300);
-      console.log(res2);
-      const res3 = await breathe(750);
-      console.log(res3);
-      const res4 = await breathe(900);
-      console.log(res4);
-      console.log('end');
-    }
+		// await breathe(100);
+		// await breathe(500);
+		// await breathe(5000);
+		// Can't be done
 
-    const wrappedFunction = catchErrors(go);
+		// Arrow function with async
+		// const go = async() => {
 
-    wrappedFunction('Wes', 'Bos');
-  </script>
+		// }
+
+		async function go() { // must use async to wait for a function to complete
+			console.log('start');
+			const resp = await breathe(1000);
+			console.log(res);
+			const resp2 = await breathe(300);
+			console.log(resp2);
+			const resp3 = await breathe(750);
+			console.log(resp3);
+			const resp4 = await breathe(900);
+			console.log(resp4);
+			console.log('end');
+		}
+
+		go();
+
+	</script>
 </body>
 
 </html>
